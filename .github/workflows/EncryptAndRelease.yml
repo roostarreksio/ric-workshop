@@ -12,11 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Encrypt
-        run: find -type f -name '*.cnv' | xargs ./.github/workflows/AMkd/AMkd.out -k
+        run: |
+          find -type f -name '*.cnv' | xargs ./.github/workflows/AMkd/AMkd.out -k
+          find -type f -name '*.class' | xargs ./.github/workflows/AMkd/AMkd.out -k
       - name: Rename
-        run: find -type f -name '*.cnv.kod' -print0 | sed 's/.cnv.kod//g' | xargs -0 -I name mv name.cnv.kod  name.cnv
+        run: |
+          find -type f -name '*.cnv.kod' -print0 | sed 's/.cnv.kod//g' | xargs -0 -I name mv name.cnv.kod  name.cnv
+          find -type f -name '*.class.kod' -print0 | sed 's/.class.kod//g' | xargs -0 -I name mv name.class.kod  name.class
       - name: Zip Folder
-        run: zip -r release.zip . -x ".git/*" ".github/*" "README.md"
+        run: zip -r release.zip . -x ".git/*" ".github/*" "README.md" "LICENSE"
       - name: Determine next version/tag
         id: determine
         uses: anothrNick/github-tag-action@1.17.2
