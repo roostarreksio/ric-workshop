@@ -22,7 +22,7 @@ jobs:
           find -type f -name '*.cnv.kod' -print0 | sed 's/.cnv.kod//g' | xargs -0 -I name mv name.cnv.kod  name.cnv
           find -type f -name '*.class.kod' -print0 | sed 's/.class.kod//g' | xargs -0 -I name mv name.class.kod  name.class
       - name: Zip Coded
-        run: zip -r release.zip . -x ".git/*" ".github/*" "README.md" "LICENSE"
+        run: zip -r release.zip . -x "release_dev.zip" ".git/*" ".github/*" "README.md" "LICENSE"
       - name: Determine next version/tag
         id: determine
         uses: anothrNick/github-tag-action@1.17.2
