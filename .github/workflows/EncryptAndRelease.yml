@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Zip Decoded
+        run: zip -r release_dev.zip . -x ".git/*" ".github/*" "README.md" "LICENSE"
       - name: Encrypt
         run: |
           find -type f -name '*.cnv' | xargs ./.github/workflows/AMkd/AMkd.out -k
@@ -19,14 +21,14 @@ jobs:
         run: |
           find -type f -name '*.cnv.kod' -print0 | sed 's/.cnv.kod//g' | xargs -0 -I name mv name.cnv.kod  name.cnv
           find -type f -name '*.class.kod' -print0 | sed 's/.class.kod//g' | xargs -0 -I name mv name.class.kod  name.class
-      - name: Zip Folder
+      - name: Zip Coded
         run: zip -r release.zip . -x ".git/*" ".github/*" "README.md" "LICENSE"
       - name: Determine next version/tag
         id: determine
         uses: anothrNick/github-tag-action@1.17.2
         env:
-          DRY_RUN: true
           DEFAULT_BUMP: patch
+          DRY_RUN: true
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -46,4 +48,14 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./release.zip
           asset_name: ric-workshop-${{ steps.determine.outputs.new_tag }}.zip
+          asset_content_type: application/zip
+      - name: Upload Release Asset (Decoded)
+        id: upload-release-asset-dev
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release_dev.zip
+          asset_name: ric-workshop-${{ steps.determine.outputs.new_tag }}-dev.zip
           asset_content_type: application/zip
