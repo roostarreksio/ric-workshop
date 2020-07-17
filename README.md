@@ -1,11 +1,11 @@
-# ric-workshop ![GitHub release (latest by date)](https://img.shields.io/github/v/release/roostarreksio/ric-workshop?color=orange&style=flat-square)
+# ric-workshop [![GitHub release (latest by date)](https://img.shields.io/github/v/release/roostarreksio/ric-workshop?color=orange&style=flat-square)](https://github.com/roostarreksio/ric-workshop/releases/latest)
 
 A place created to make working on Rex and Wizards game modding/fixing easier.
 
 ---
 
 ### How to install:
-* Download the newest release ZIP [here](https://github.com/roostarreksio/ric-workshop/releases) (*-dev* version has decoded files) 
+* Download the newest release ZIP [here](https://github.com/roostarreksio/ric-workshop/releases/latest) (*-dev* version has decoded files) 
 * Copy contents of the archive to your game's installation folder (e.g. *C:/Program Files/AidemMedia/Reksio i Czarodzieje*)
 
 ---
