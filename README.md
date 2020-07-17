@@ -1,4 +1,4 @@
-# ric-workshop
+# ric-workshop ![GitHub release (latest by date)](https://img.shields.io/github/v/release/roostarreksio/ric-workshop?color=orange&style=flat-square)
 
 A place created to make working on Rex and Wizards game modding/fixing easier.
 
