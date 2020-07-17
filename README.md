@@ -14,6 +14,8 @@ A place created to make working on Rex and Wizards game modding/fixing easier.
 
 #### Shooter
 * Fixed a bug that caused the game to crash when losing the fight after loading a save-state made during the fight  
+#### Kubki
+* Fixed a bug that caused the game to crash during Genie's riddle mini-game  
 ---
 
 
