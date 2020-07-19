@@ -31,13 +31,12 @@ A place created to make working on Rex and Wizards game modding/fixing easier.
 * Fixed a bug that caused an asleep character to become awake when hit with the Changing Into A Frog spell
 * Fixed player position becoming unaligned after elapsing of the Globe Of Pudding spell
 * Fixed spells being cast by enemies even after hitting them with a spell
+#### Smokret
+* Fixed a bug that prohibited Smokret's talking animation from playing
 ---
 
 
 CNV encoder/decoder [AMkd](https://github.com/Dove6/AMkd) by Dove6 is used to create releases.
 
-
-#### Smokret
-* Fixed a bug that prohibited Smokret's talking animation from playing
 
 ![](https://i.imgur.com/d2DkcNd.png)
