@@ -34,8 +34,10 @@ A place created to make working on Rex and Wizards game modding/fixing easier.
 #### Smokret
 * Fixed a bug that prohibited Smokret's talking animation from playing
 ---
+### Mods (optional):
+* DrobLoader
 
-
+---
 CNV encoder/decoder [AMkd](https://github.com/Dove6/AMkd) by Dove6 is used to create releases.
 
 
