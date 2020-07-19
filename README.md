@@ -37,4 +37,7 @@ A place created to make working on Rex and Wizards game modding/fixing easier.
 CNV encoder/decoder [AMkd](https://github.com/Dove6/AMkd) by Dove6 is used to create releases.
 
 
+#### Smokret
+* Fixed a bug that prohibited Smokret's talking animation from playing
+
 ![](https://i.imgur.com/d2DkcNd.png)
