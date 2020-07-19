@@ -1,0 +1,39 @@
+name: AddDrob
+on:
+  workflow_dispatch: 
+jobs:
+  addDrob:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: 'drobloader/mod'
+    - name: Encrypt
+      run: |
+        find -type f -name '*.cnv' | xargs ./.github/workflows/AMkd/AMkd.out -k
+        find -type f -name '*.class' | xargs ./.github/workflows/AMkd/AMkd.out -k
+    - name: Rename
+      run: |
+        find -type f -name '*.cnv.kod' -print0 | sed 's/.cnv.kod//g' | xargs -0 -I name mv name.cnv.kod  name.cnv
+        find -type f -name '*.class.kod' -print0 | sed 's/.class.kod//g' | xargs -0 -I name mv name.class.kod  name.class
+    - name: Zip Coded
+      run: zip -r release_drob.zip . -x ".git/*" ".github/*" "README.md" "LICENSE"
+    - name: geturl
+      id: geturl
+      run:   |
+         upload_url=$(curl -sL https://api.github.com/repos/${{github.repository}}/releases/latest?access_token=${{ secrets.GITHUB_TOKEN }} | jq -r '.upload_url')
+         echo ::set-output name=upload_url::$upload_url
+    - name: gettag
+      id: gettag
+      run:   |
+         tag_name=$(curl -sL https://api.github.com/repos/${{github.repository}}/releases/latest?access_token=${{ secrets.GITHUB_TOKEN }} | jq -r '.tag_name')
+         echo ::set-output name=tag_name::$tag_name
+    - name: Upload Coded
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.geturl.outputs.upload_url }}
+        asset_path: ./release_drob.zip
+        asset_name: ric-workshop-${{ steps.gettag.outputs.tag_name }}-DrobLoader-1.0.0.zip
+        asset_content_type: application/zip
