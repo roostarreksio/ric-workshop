@@ -15,8 +15,8 @@ A place created to make working on Rex and Wizards game modding/fixing easier.
 #### Kubki
 * Fixed a bug that caused the game to crash during Genie's riddle mini-game  
 #### Labirynt
-* Fixed the effect of the Changing Into A Frog spell and added new graphics
-* Fixed the effect of the Circles And Whirls spell on playable characters (affecting Reksio regardless of which character has been hit)
+* Fixed the effect of the Changing Into A Frog spell and added new graphics and allow enemies to cast it
+* Fixed the effect of the Circles And Whirls spell on playable characters (affecting Reksio regardless of which character has been hit) and allow enemies to cast it
 * Fixed the effect of the Darkness spell on hostile (non-playable) characters
 * Fixed the effect of the Sleep spell which could render a character asleep forever if "covered" by another spell
 * Fixed some graphics bugs (ie. unaligned spell effect animation or Darkness visual effect glitching near the left side of the screen)
