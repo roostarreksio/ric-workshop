@@ -36,6 +36,8 @@ A place created to make working on Rex and Wizards game modding/fixing easier.
 * Fixed a bug that caused the game to crash when losing the fight after loading a save-state made during the fight  
 #### Smokret
 * Fixed a bug that prohibited Smokret's talking animation from playing
+#### Other
+* Fixed some logic problems when Kretes is not rescued, fixed the possibility to fly to Piklibia without him (unless very persistent)
 ---
 ### Mods (optional):
 * DrobLoader
